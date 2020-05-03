@@ -100,9 +100,11 @@ let pairProgramming = new Effect(
 // []  Play out the scenario
 // ******************************************
 // turn	action
+let Player1 = new Player("Player1");
 // [] 1	Player 1 summons "Red Belt Ninja"
 // [] 1	Player 1 plays "Hard Algorithm" on "Red Belt Ninja"
 // [] 2	Player 2 summons "Black Belt Ninja"
+let Player2 = new Player("Player2");
 // [] 2	Player 2 plays "Unhandled Promise Rejection" on "Red Belt Ninja"
 // [] 3	Player 1 plays "Pair Programming" on "Red Belt Ninja"
 // [] 3	Player 1 has "Red Belt Ninja" attack "Black Belt Ninja"
