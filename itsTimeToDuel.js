@@ -43,6 +43,12 @@ class Effect extends Card {
   }
 }
 
+// Build Player Class..
+class Player {
+  constructor(name) {
+    this.name = name;
+  }
+}
 // *******************************************
 // Make instances of the following Unit Cards
 // *******************************************
