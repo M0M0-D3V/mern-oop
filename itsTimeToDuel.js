@@ -17,9 +17,9 @@ class Unit extends Card {
   }
   //Unit cards feature an Attack capability
   attack(target) {
-    // [] if check target is actually a Unit Card
+    // [x] if check target is actually a Unit Card
     if (target instanceof Unit) {
-      // [] reduce target res by power
+      // [x] reduce target res by power
       target.res -= this.power; // target is an instance of Unit which has Unit and Card properties
     } else {
       throw new Error("Target must be a Unit Card!");
@@ -32,6 +32,10 @@ class Effect extends Card {
   // Effect is another child Class of Card
   constructor(name, cost, text, stat, magnitude) {
     // [] stuff about properties of this Effect Card
+    super(name, cost); // Effect card still needs a name and cost as inherited from parent Card
+    this.text = text;
+    this.stat = stat;
+    this.magnitude = magnitude;
   }
   // [] build methods that activate Play
   play(target) {
