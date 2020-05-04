@@ -27,11 +27,11 @@ class Unit extends Card {
   }
 }
 
-// [] Effect cards have their own properties as well but still a card
+// [x] Effect cards have their own properties as well but still a card
 class Effect extends Card {
   // Effect is another child Class of Card
   constructor(name, cost, text, stat, magnitude) {
-    // [] stuff about properties of this Effect Card
+    // [x] stuff about properties of this Effect Card
     super(name, cost); // Effect card still needs a name and cost as inherited from parent Card
     this.text = text;
     this.stat = stat;
@@ -41,6 +41,15 @@ class Effect extends Card {
   play(target) {
     if (target instanceof Unit) {
       // [] implement card text here
+      // increase or decrease either power or resilience of target Unit based on text
+      // search text if 'raise' or 'lower'
+      if (this.text.includes("increase")) {
+      } else if (this.text.includes("reduce")) {
+      }
+      // check for power or resilience
+      if (this.text.includes("power")) {
+      } else if (this.text.includes("resilience")) {
+      }
     } else {
       throw new Error("Target must be a Unit Card!");
     }
@@ -86,7 +95,7 @@ let unhandledPromRej = new Effect(
   1,
   "reduce target's resilience by 2",
   resilience,
-  -2
+  2
 );
 // [x]  Make an instance of "Pair Programming"
 let pairProgramming = new Effect(
