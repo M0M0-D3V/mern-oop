@@ -41,18 +41,20 @@ class Effect extends Card {
   play(target) {
     if (target instanceof Unit) {
       // [] implement card text here
-      // increase or decrease either power or resilience of target Unit based on text
-      // search text if 'raise' or 'lower'
-      if (this.text.includes("increase")) {
-      } else if (this.text.includes("reduce")) {
-      }
       // check for power or resilience
-      if (this.text.includes("power")) {
-      } else if (this.text.includes("resilience")) {
+      // increase or decrease either power or resilience of target Unit by magnitude
+      if (this.stat == resilience) {
+        target.res += this.magnitude;
       }
+      else if(this.stat == power) {
+        target.power += this.magnitude;
+      }
+      // ternary operatior syntax, can take place of line 46 - 51, provided there are only two possibilities 
+      // this.stat == resilience? target.res += this.magnitude : target.power += this.magnitude; 
+
     } else {
-      throw new Error("Target must be a Unit Card!");
-    }
+        throw new Error("Target must be a Unit Card!");
+  }
   }
 }
 
@@ -61,7 +63,13 @@ class Player {
   constructor(name) {
     this.name = name;
   }
+  deck() {
+    HardAlgorithm = new Effect()
+    unhandledPromiseRegection = new Effect()
+    pairProgramming = new Effect()
+  }
 }
+
 // *******************************************
 // Make instances of the following Unit Cards
 // *******************************************
@@ -71,6 +79,7 @@ class Player {
 // ==========================================
 // [x]  Make an instance of "Red Belt Ninja"
 let redBeltNinja = new Unit("Red Belt Ninja", 3, 3, 4);
+redBeltNinja.deck.
 // [x]  Make an instance of "Black Belt Ninja"
 let blackBeltNinja = new Unit("Black Belt Ninja", 4, 5, 4);
 // *******************************************
@@ -95,7 +104,7 @@ let unhandledPromRej = new Effect(
   1,
   "reduce target's resilience by 2",
   resilience,
-  2
+  -2
 );
 // [x]  Make an instance of "Pair Programming"
 let pairProgramming = new Effect(
@@ -117,3 +126,4 @@ let Player2 = new Player("Player2");
 // [] 2	Player 2 plays "Unhandled Promise Rejection" on "Red Belt Ninja"
 // [] 3	Player 1 plays "Pair Programming" on "Red Belt Ninja"
 // [] 3	Player 1 has "Red Belt Ninja" attack "Black Belt Ninja"
+
