@@ -49,6 +49,16 @@ class Effect extends Card {
       else if(this.stat == power) {
         target.power += this.magnitude;
       }
+      switch (this.stat) {
+        case "resilience":
+          target.resilience += this.magnitude;
+          break;
+        case "power":
+          target.power += this.magnitude;
+          break;
+        default:
+          throw new Error("Can't do that");
+      }
       // ternary operatior syntax, can take place of line 46 - 51, provided there are only two possibilities 
       // this.stat == resilience? target.res += this.magnitude : target.power += this.magnitude; 
 
@@ -60,8 +70,9 @@ class Effect extends Card {
 
 // Build Player Class..
 class Player {
-  constructor(name) {
+  constructor(name, deck) {
     this.name = name;
+    this.deck = deck;
   }
   deck() {
     HardAlgorithm = new Effect()
@@ -120,6 +131,7 @@ let pairProgramming = new Effect(
 // turn	action
 let Player1 = new Player("Player1");
 // [] 1	Player 1 summons "Red Belt Ninja"
+Player1.
 // [] 1	Player 1 plays "Hard Algorithm" on "Red Belt Ninja"
 // [] 2	Player 2 summons "Black Belt Ninja"
 let Player2 = new Player("Player2");
